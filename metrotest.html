@@ -23,6 +23,8 @@
 <script>
     document.getElementById('start_ad').addEventListener('click',
         function () {
+            document.getElementById('videoSlot').play();
+            //document.getElementById('videoSlot').pause();
             if (window.ya && window.ya.__adViewer) 
                 runAd(window.ya.__adViewer);
             else
