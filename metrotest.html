@@ -53,15 +53,18 @@
         )
     }
 
-    fetch('maxima_test.xml')
-    .then(function (response) {console.log(1); return response.text()})
-    .then(function (str) {
-        console.log(2);
+    var oReq = new XMLHttpRequest();
+    oReq.onload = reqListener;
+    oReq.open("get", "maxima_test.xml", true);
+    oReq.send();
+
+    function reqListener () {
+        var str = this.responseText;
         ya.videoAd.loadModule('AdLoader')
             .then(function (adLoaderModule) {
                 var AdLoader = adLoaderModule.AdLoader;
                 return AdLoader.create({
-                    vast: str                                       //VAST строкой
+                    vast: str                                     //VAST строкой
                     //vastUrl: "http://awaps.yandex.net/0/c2/R75hVBJ1hkvZU99IEfuR+3cfM3by2Q9S.?d=3514175"
                 }, true);
             })
@@ -85,7 +88,7 @@
                     console.log('Something went wrong, alternative actions')
                 }
             )
-    })
+    }
 </script>
 </body>
 </html>
