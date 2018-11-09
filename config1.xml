@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<InteractiveAd>
+    <Video>
+        <VAST>
+            <Ad>
+                <Inline>
+                    <MediaFiles>
+                    <MediaFile id="720p.mp4" delivery="progressive" bitrate="644" width="1280" height="720" type="video/mp4"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_720p.mp4]]></MediaFile>
+                    <MediaFile id="720p.flv" delivery="progressive" bitrate="561" width="1280" height="720" type="video/x-flv"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_720p.flv]]></MediaFile>
+                    <MediaFile id="720p.webm" delivery="progressive" bitrate="196" width="1280" height="720" type="video/webm"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_720p.webm]]></MediaFile>
+                    <MediaFile id="480p.mp4" delivery="progressive" bitrate="333" width="852" height="480" type="video/mp4"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_480p.mp4]]></MediaFile>
+                    <MediaFile id="480p.flv" delivery="progressive" bitrate="281" width="852" height="480" type="video/x-flv"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_480p.flv]]></MediaFile>
+                    <MediaFile id="480p.webm" delivery="progressive" bitrate="121" width="852" height="480" type="video/webm"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_480p.webm]]></MediaFile>
+                    <MediaFile id="360p.mp4" delivery="progressive" bitrate="192" width="640" height="360" type="video/mp4"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_360p.mp4]]></MediaFile>
+                    <MediaFile id="360p.flv" delivery="progressive" bitrate="159" width="640" height="360" type="video/x-flv"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_360p.flv]]></MediaFile>
+                    <MediaFile id="360p.webm" delivery="progressive" bitrate="86" width="640" height="360" type="video/webm"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_360p.webm]]></MediaFile>
+                    <MediaFile id="240p.mp4" delivery="progressive" bitrate="109" width="432" height="240" type="video/mp4"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_240p.mp4]]></MediaFile>
+                    <MediaFile id="240p.flv" delivery="progressive" bitrate="91" width="432" height="240" type="video/x-flv"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_240p.flv]]></MediaFile>
+                    <MediaFile id="240p.webm" delivery="progressive" bitrate="59" width="432" height="240" type="video/webm"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923_169_240p.webm]]></MediaFile>
+                    <MediaFile id="HLSPlaylist" delivery="progressive" bitrate="0" width="0" height="0" type="application/x-mpegURL"><![CDATA[http://strm.yandex.ru/vh-bsvideo-converted/vod-content/17483846102724670923.m3u8]]></MediaFile></MediaFiles>
+            <VideoClicks>
+                <ClickThrough><![CDATA[http://awaps.yandex.net/1/c1/tVK-Oiz0m0j0DyMciZzbM9ruyrfp1To6ab0GL4mGnPTPtDqZWDKSNpbS8udVY_tx9xTWeI8Zy2cT6ye8ROqJqkn1lI3BSMGPcAzXYPPKOfr3B78ZEetHk91xPwt_tph8ezUolyvn3qVH5GiD9yoFE3WsL5ELFQRgoQC01K3c7BgNtVj8Rqm+ZNLt5_tQ5m2XtxmZNLN8ha4GPLFvEEZSRLa6NuZ-oJUs4zL8zdEo8SaaHdmYTCSfzLR_EGs8JWwAA_A_.htm]]></ClickThrough>
+            </VideoClicks>
+                </Inline>
+            </Ad>
+        </VAST>
+    </Video>
+    <Elements></Elements>
+</InteractiveAd>

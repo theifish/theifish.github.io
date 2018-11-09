@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body,html{margin: 0; padding: 0; height: 100%}
+    .main {display: flex; width: 100%; height: 100%; align-items: center; justify-content: center}
+    #start_ad {border: 1px solid #000000; background: gray; font-size: 14px; width: 80%; max-width: 400px; padding: 20px; color: #ffffff}
+
+    #ad_wrapper {left:0;top:0;bottom:0;right:0;background:#000000;position:fixed;display: none}
+    #videoSlot, #slot {position: absolute; left:0; top: 0; width: 100%; height: 100%}
+</style>
+</head>
+<body>
+<div id="ad_wrapper">
+    <video id="videoSlot" playsinline></video>  
+    <div id="slot"></div>
+</div>
+<div class="main">
+    <button id="start_ad">Start AD</button>
+</div>
+<script src="https://yastatic.net/awaps-ad-sdk-js/1_0/adsdk.js"></script>
+<script>
+    document.getElementById('start_ad').addEventListener('click',
+        function () {
+            if (window.ya && window.ya.__adViewer) 
+                runAd(window.ya.__adViewer);
+            else
+                console.log('Ya AdViewer is not ready');
+        }
+    )
+
+    function runAd(adViewer) {
+        document.getElementById('ad_wrapper').style.display = 'block';
+        adViewer.showAd(document.getElementById('videoSlot'), document.getElementById('slot'), 
+            {
+                backgroundBlur: true,               //безусловное включение блюра
+                clickThroughCallback: function (e) {      //перехватывание клика по креативу и свой экщн
+                    if (e.url) { 
+                        //небольшой таймаут, чтобы трекинг клика отослался
+                        setTimeout(
+                            function () {location.replace(e.url)},
+                            100
+                        );
+                    }
+                }
+            }
+        ).then(
+            function () {
+                // креатив закончился или был скипнут, двигаемся дальше
+                //location.replace(location.href)   
+            }
+        )
+    }
+
+    fetch('maxima_test.xml')
+    .then(function (response) {console.log(1); return response.text()})
+    .then(function (str) {
+        console.log(2);
+        ya.videoAd.loadModule('AdLoader')
+            .then(function (adLoaderModule) {
+                var AdLoader = adLoaderModule.AdLoader;
+                return AdLoader.create({
+                    vast: str                                       //VAST строкой
+                    //vastUrl: "http://awaps.yandex.net/0/c2/R75hVBJ1hkvZU99IEfuR+3cfM3by2Q9S.?d=3514175"
+                }, true);
+            })
+            .then(function (adViewer) {
+                return adViewer.loadAd();
+            })
+            .then(function (adViewer) {
+                adViewer.preload({
+                    width: window.screen.width,
+                    height: window.screen.height,
+                    preloadTimeout: 2000,                           //максимальное время предзагрузки креатива, 
+                                                                    //все запросы, не успевышие прогрузиться за это время, канселятся
+                    videoSlot: document.getElementById('videoSlot') //видеослот может быть отдельный и не в доме для предзагрузки
+                });
+
+                window.ya.__adViewer = adViewer;                
+            })
+            .catch(
+                function (e) {
+                    //что-то пошло не так, обрабатываем
+                    console.log('Something went wrong, alternative actions')
+                }
+            )
+    })
+</script>
+</body>
+</html>
